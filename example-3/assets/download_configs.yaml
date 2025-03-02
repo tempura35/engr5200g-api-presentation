@@ -1,0 +1,5 @@
+concurrent_downloads: 3
+output_dir: downloads
+files: [
+    https://raw.githubusercontent.com/tempura35/engr5200g-api-presentation/refs/heads/example-3/example-3/assets/downloading.tiff,
+]
