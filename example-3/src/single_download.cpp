@@ -5,7 +5,7 @@
 #include <yaml.h>
 #include <errno.h>
 #include <string.h>
-#include "support/download_configs.h"
+#include "../../support/download_configs.h"
 
 using std::ifstream;
 using std::string;
@@ -29,7 +29,6 @@ int main(int argc, char* argv[]) {
     curl_easy_setopt(easyHandle, CURLOPT_XFERINFOFUNCTION, DownloadProgressCallback);
     for (const string& url : configs.downloadUrls) {
         string fileName = ExtractFileName(url);
-        cout << "Downloading " << url << ". File name " << fileName << endl;
         pDownloadFile = fopen(fileName.c_str(), "wb");
         curl_easy_setopt(easyHandle, CURLOPT_URL, url.c_str());
         curl_easy_setopt(easyHandle, CURLOPT_WRITEDATA, pDownloadFile);
